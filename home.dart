@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/discover_screen.dart';
 import 'package:flutter_test_app/etc_screen.dart';
 import 'package:flutter_test_app/home_screen.dart';
 
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<Home> {
 
   static List<Widget> pages = <Widget>[
     const HomeScreen(),
-    const EtcScreen(),
+    const DiscoverScreen(),
     const HomeScreen(),
     const EtcScreen(),
     const EtcScreen(),

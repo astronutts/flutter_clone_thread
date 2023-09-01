@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/discover_screen.dart';
 import 'package:flutter_test_app/home.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       title: "Hey! I tried to .ddd.",
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: DiscoverScreen(),
     );
   }
 }
