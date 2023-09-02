@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_app/discover_screen.dart';
+import 'package:flutter_test_app/activity_screen.dart';
 import 'package:flutter_test_app/etc_screen.dart';
 import 'package:flutter_test_app/home_screen.dart';
+import 'package:flutter_test_app/search_screen.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,9 +19,9 @@ class _HomeScreenState extends State<Home> {
 
   static List<Widget> pages = <Widget>[
     const HomeScreen(),
-    const DiscoverScreen(),
+    const SearchScreen(),
     const HomeScreen(),
-    const EtcScreen(),
+    const ActivityScreen(),
     const EtcScreen(),
   ];
 
@@ -216,14 +217,14 @@ class _HomeScreenState extends State<Home> {
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(
-                      FontAwesomeIcons.user,
+                      FontAwesomeIcons.solidHeart,
                       size: 20,
                     ),
                     label: "",
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(
-                      FontAwesomeIcons.heart,
+                      FontAwesomeIcons.user,
                       size: 20,
                     ),
                     label: "",
