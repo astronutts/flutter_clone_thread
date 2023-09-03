@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test_app/activity_screen.dart';
 import 'package:flutter_test_app/etc_screen.dart';
 import 'package:flutter_test_app/home_screen.dart';
 import 'package:flutter_test_app/search_screen.dart';
+import 'package:flutter_test_app/widgets/thread_comments.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -45,131 +47,10 @@ class _HomeScreenState extends State<Home> {
 
   Future<dynamic> newThread() {
     return showModalBottomSheet(
+      clipBehavior: Clip.hardEdge,
+      backgroundColor: Colors.transparent,
       context: context,
-      builder: (context) {
-        return SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            height: MediaQuery.of(context).size.height * 0.9,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text("Cancel"),
-                    SizedBox(
-                      width: 100,
-                    ),
-                    Text(
-                      "New thread",
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: double.infinity,
-                  child: Divider(
-                    color: Colors.grey,
-                    thickness: 1.0,
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          foregroundImage: NetworkImage(
-                              "https://avatars.githubusercontent.com/u/97665384?v=4"),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("astronuts"),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 200,
-                              child: TextField(
-                                controller: newThreadController,
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  hintText: "Start a thread...",
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          width: 1,
-                          height: 100,
-                          color: Colors.grey[500],
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Icon(FontAwesomeIcons.file)
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 10,
-                        ),
-                        CircleAvatar(
-                          radius: 10,
-                          foregroundImage: NetworkImage(
-                              "https://avatars.githubusercontent.com/u/97665384?v=4"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      alignment: Alignment.topRight,
-                      child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Post",
-                            style: TextStyle(
-                              color: newThreadController.text.isNotEmpty
-                                  ? Colors.red
-                                  : Colors.grey,
-                            ),
-                          )),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
+      builder: (context) => const ThreadComments(),
     );
   }
 
