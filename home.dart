@@ -4,6 +4,7 @@ import 'package:flutter_test_app/activity_screen.dart';
 import 'package:flutter_test_app/etc_screen.dart';
 import 'package:flutter_test_app/home_screen.dart';
 import 'package:flutter_test_app/search_screen.dart';
+import 'package:flutter_test_app/user_profile_screen.dart';
 import 'package:flutter_test_app/widgets/thread_comments.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<Home> {
     const SearchScreen(),
     const HomeScreen(),
     const ActivityScreen(),
-    const EtcScreen(),
+    const UserProfileScreen(),
   ];
 
   void _onItemTap(int index) {
