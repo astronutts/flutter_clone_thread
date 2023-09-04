@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/privacy_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -65,16 +66,22 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
             ),
-            ListTile(
-              leading: FaIcon(
-                FontAwesomeIcons.lock,
-                color: Colors.black,
-              ),
-              title: Text(
-                'Privacy',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PrivacyScreen()));
+              },
+              child: ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.lock,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  'Privacy',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
