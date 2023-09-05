@@ -59,64 +59,69 @@ class _HomeScreenState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: pages[_selectedIndex],
-      bottomNavigationBar: SizedBox(
-        height: 55,
-        child: Wrap(
-          children: [
-            BottomNavigationBar(
-                selectedIconTheme: const IconThemeData(color: Colors.black),
-                unselectedItemColor: Colors.grey,
-                currentIndex: _selectedIndex,
-                onTap: _onItemTap,
-                backgroundColor: Colors.white,
-                selectedItemColor: Colors.red,
-                showSelectedLabels: false,
-                showUnselectedLabels: false,
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      FontAwesomeIcons.house,
-                      size: 20,
-                    ),
-                    label: "",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      FontAwesomeIcons.compass,
-                      size: 20,
-                    ),
-                    label: "",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: GestureDetector(
-                      onTap: _onTapPen,
-                      child: Icon(
-                        FontAwesomeIcons.pen,
-                        size: 20,
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        print(orientation);
+        return Scaffold(
+          body: pages[_selectedIndex],
+          bottomNavigationBar: SizedBox(
+            height: 55,
+            child: Wrap(
+              children: [
+                BottomNavigationBar(
+                    selectedIconTheme: const IconThemeData(color: Colors.black),
+                    unselectedItemColor: Colors.grey,
+                    currentIndex: _selectedIndex,
+                    onTap: _onItemTap,
+                    backgroundColor: Colors.white,
+                    selectedItemColor: Colors.red,
+                    showSelectedLabels: false,
+                    showUnselectedLabels: false,
+                    items: [
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          FontAwesomeIcons.house,
+                          size: 20,
+                        ),
+                        label: "",
                       ),
-                    ),
-                    label: "",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      FontAwesomeIcons.solidHeart,
-                      size: 20,
-                    ),
-                    label: "",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      FontAwesomeIcons.user,
-                      size: 20,
-                    ),
-                    label: "",
-                  )
-                ]),
-          ],
-        ),
-      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          FontAwesomeIcons.compass,
+                          size: 20,
+                        ),
+                        label: "",
+                      ),
+                      BottomNavigationBarItem(
+                        icon: GestureDetector(
+                          onTap: _onTapPen,
+                          child: Icon(
+                            FontAwesomeIcons.pen,
+                            size: 20,
+                          ),
+                        ),
+                        label: "",
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          FontAwesomeIcons.solidHeart,
+                          size: 20,
+                        ),
+                        label: "",
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          FontAwesomeIcons.user,
+                          size: 20,
+                        ),
+                        label: "",
+                      )
+                    ]),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
