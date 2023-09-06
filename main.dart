@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_app/activity_screen.dart';
 import 'package:flutter_test_app/home.dart';
 import 'package:flutter_test_app/search_screen.dart';
+import 'package:flutter_test_app/video/video_recording_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       title: "Hey! I tried to .ddd.",
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: VideoRecordingScreen(),
     );
   }
 }
