@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/utils.dart';
 
 class ActivityWidget extends StatelessWidget {
   String a_imagepath;
@@ -34,7 +35,10 @@ class ActivityWidget extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     "Folow",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(
+                        color: isDarkMode(context)
+                            ? Colors.grey.shade300
+                            : Colors.black),
                   )),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
