@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/video/video_recording_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ThreadComments extends StatefulWidget {
@@ -174,7 +175,18 @@ class _ThreadCommentsState extends State<ThreadComments> {
                                     SizedBox(
                                       width: 8,
                                     ),
-                                    FaIcon(FontAwesomeIcons.faceSmile),
+                                    GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: ((context) =>
+                                                  VideoRecordingScreen()),
+                                            ),
+                                          );
+                                        },
+                                        child: FaIcon(
+                                          FontAwesomeIcons.share,
+                                        )),
                                     SizedBox(
                                       width: 14,
                                     ),
