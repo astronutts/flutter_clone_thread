@@ -7,6 +7,7 @@ import 'package:flutter_test_app/etc_screen.dart';
 import 'package:flutter_test_app/home_screen.dart';
 import 'package:flutter_test_app/search_screen.dart';
 import 'package:flutter_test_app/user_profile_screen.dart';
+import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/thread_comments.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -65,11 +66,14 @@ class _HomeScreenState extends State<Home> {
         return Scaffold(
           body: pages[_selectedIndex],
           bottomNavigationBar: SizedBox(
-            height: 55,
+            height: 70,
             child: Wrap(
               children: [
                 BottomNavigationBar(
-                    selectedIconTheme: const IconThemeData(color: Colors.black),
+                    selectedIconTheme: IconThemeData(
+                        color: isDarkMode(context)
+                            ? Colors.grey.shade300
+                            : Colors.black),
                     unselectedItemColor: Colors.grey,
                     currentIndex: _selectedIndex,
                     onTap: _onItemTap,
