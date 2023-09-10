@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/setting_screen.dart';
+import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/activity_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -14,33 +15,54 @@ class UserProfileScreen extends StatelessWidget {
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              backgroundColor: Colors.white,
+              backgroundColor:
+                  isDarkMode(context) ? Colors.black : Colors.white,
               elevation: 0.0,
               pinned: true,
               title: FaIcon(
                 FontAwesomeIcons.earthAsia,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               actions: [
                 IconButton(
                   onPressed: () {},
                   icon: FaIcon(
                     FontAwesomeIcons.camera,
-                    color: Colors.black,
+                    color: isDarkMode(context)
+                        ? Colors.grey.shade300
+                        : Colors.black,
                   ),
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: ((context) => SettingScreen()),
+                    Navigator.of(context).push(PageRouteBuilder(
+                      transitionDuration: Duration(
+                        seconds: 1,
                       ),
-                    );
+                      reverseTransitionDuration: Duration(
+                        seconds: 1,
+                      ),
+                      pageBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                      ) =>
+                          SettingScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) =>
+                              FadeTransition(
+                        child: child,
+                        opacity: animation,
+                      ),
+                    ));
                   },
                   icon: FaIcon(
                     FontAwesomeIcons.gears,
                     size: 20,
-                    color: Colors.black,
+                    color: isDarkMode(context)
+                        ? Colors.grey.shade300
+                        : Colors.black,
                   ),
                 ),
               ],
