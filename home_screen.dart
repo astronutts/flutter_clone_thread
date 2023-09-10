@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/message_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,9 +17,10 @@ class HomeScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const Icon(
+              Icon(
                 FontAwesomeIcons.instagram,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
                 size: 60,
               ),
               const SizedBox(
