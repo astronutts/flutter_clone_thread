@@ -42,9 +42,14 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
     print(cameras);
 
     _cameraController = CameraController(
-        cameras[_selfiemode ? 1 : 0], ResolutionPreset.ultraHigh);
+      cameras[_selfiemode ? 1 : 0],
+      ResolutionPreset.ultraHigh,
+      enableAudio: false,
+    );
 
     await _cameraController.initialize();
+    await _cameraController.prepareForVideoRecording();
+
     _flashMode = _cameraController.value.flashMode;
   }
 
@@ -68,8 +73,7 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
   Future<void> _setFlashMode(FlashMode newFlashMode) async {
     await _cameraController.setFlashMode(newFlashMode);
     _flashMode = newFlashMode;
-    var flashState = _flashMode.toString();
-    print(flashState);
+
     setState(() {});
   }
 
@@ -113,7 +117,9 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => VideoPreviewScreen(video: video),
+        builder: (context) => VideoPreviewScreen(
+          video: video,
+        ),
       ),
     );
   }
@@ -158,6 +164,14 @@ class _VideoRecordingScreenState extends State<VideoRecordingScreen>
                               onPressed: () => _setFlashMode(FlashMode.off),
                               icon: Icon(
                                 Icons.flashlight_on_outlined,
+                                color: Colors.black,
+                                size: 40,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () => _setFlashMode(FlashMode.off),
+                              icon: Icon(
+                                Icons.flashlight_off_outlined,
                                 color: Colors.black,
                                 size: 40,
                               ),
