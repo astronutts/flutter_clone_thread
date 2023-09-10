@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PrivacyScreen extends StatefulWidget {
@@ -21,12 +22,13 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             color: Colors.grey,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
         elevation: 0,
         centerTitle: true,
         title: Text(
           'Privacy',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+              color: isDarkMode(context) ? Colors.grey.shade300 : Colors.black),
         ),
         leading: IconButton(
           onPressed: () {
@@ -34,7 +36,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
           },
           icon: FaIcon(
             FontAwesomeIcons.arrowLeft,
-            color: Colors.black,
+            color: isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
           ),
         ),
       ),
@@ -49,7 +51,8 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.lock,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Private profile',
@@ -68,7 +71,8 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.at,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Mentions',
@@ -85,7 +89,8 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.bellSlash,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Muted',
@@ -102,7 +107,8 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.eyeSlash,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Hidden Words',
@@ -119,7 +125,8 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.users,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Profiles you follow',
@@ -164,7 +171,8 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.circleXmark,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Blocked profiles',
@@ -181,7 +189,8 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.heartPulse,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Hide likes',

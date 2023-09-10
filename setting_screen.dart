@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/privacy_screen.dart';
+import 'package:flutter_test_app/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -15,12 +16,13 @@ class SettingScreen extends StatelessWidget {
             color: Colors.grey,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: isDarkMode(context) ? Colors.black : Colors.white,
         elevation: 0,
         centerTitle: true,
         title: Text(
           'Settings',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+              color: isDarkMode(context) ? Colors.grey.shade300 : Colors.black),
         ),
         leading: IconButton(
           onPressed: () {
@@ -28,7 +30,7 @@ class SettingScreen extends StatelessWidget {
           },
           icon: FaIcon(
             FontAwesomeIcons.arrowLeft,
-            color: Colors.black,
+            color: isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
           ),
         ),
       ),
@@ -43,7 +45,8 @@ class SettingScreen extends StatelessWidget {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.userPlus,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Follow and invite friends',
@@ -56,7 +59,8 @@ class SettingScreen extends StatelessWidget {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.bell,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Notifications',
@@ -68,13 +72,13 @@ class SettingScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => PrivacyScreen()));
+                Navigator.of(context).pushNamed("/privacy");
               },
               child: ListTile(
                 leading: FaIcon(
                   FontAwesomeIcons.lock,
-                  color: Colors.black,
+                  color:
+                      isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
                 ),
                 title: Text(
                   'Privacy',
@@ -88,7 +92,8 @@ class SettingScreen extends StatelessWidget {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.circleUser,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Account',
@@ -101,7 +106,8 @@ class SettingScreen extends StatelessWidget {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.heart,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'Help',
@@ -114,7 +120,8 @@ class SettingScreen extends StatelessWidget {
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.circleInfo,
-                color: Colors.black,
+                color:
+                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
               ),
               title: Text(
                 'About',

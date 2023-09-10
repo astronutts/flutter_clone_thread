@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/activity_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -52,14 +53,19 @@ class _SearchScreenState extends State<SearchScreen> {
               title: Text(
                 "Search",
                 style: TextStyle(
-                  color: Colors.black,
+                  color: isDarkMode(context) ? Colors.white : Colors.black,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               bottom: CupertinoNavigationBar(
                 padding: EdgeInsetsDirectional.all(5),
-                leading: CupertinoSearchTextField(),
+                leading: CupertinoSearchTextField(
+                  decoration: BoxDecoration(
+                      color: isDarkMode(context)
+                          ? Colors.black
+                          : Colors.grey.shade300),
+                ),
               )),
           body: ListView(
             scrollDirection: Axis.vertical,
