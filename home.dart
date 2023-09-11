@@ -13,6 +13,7 @@ import 'package:flutter_test_app/widgets/thread_comments.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatefulWidget {
+  static String routeName = '/';
   const Home({super.key});
 
   @override

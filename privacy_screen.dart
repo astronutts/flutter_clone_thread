@@ -4,6 +4,7 @@ import 'package:flutter_test_app/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PrivacyScreen extends StatefulWidget {
+  static String routeName = '/settings/privacy';
   PrivacyScreen({super.key});
 
   @override

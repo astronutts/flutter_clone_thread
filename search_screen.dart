@@ -15,6 +15,7 @@ final tabs = [
 ];
 
 class SearchScreen extends StatefulWidget {
+  static String routeName = '/search';
   const SearchScreen({super.key});
 
   @override

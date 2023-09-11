@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_app/privacy_screen.dart';
 import 'package:flutter_test_app/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingScreen extends StatelessWidget {
+  static String routeName = '/settings';
   const SettingScreen({super.key});
 
   @override
@@ -72,7 +74,7 @@ class SettingScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed("/privacy");
+                context.push('/settings/privacy');
               },
               child: ListTile(
                 leading: FaIcon(

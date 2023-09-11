@@ -5,6 +5,7 @@ import 'package:flutter_test_app/widgets/activity_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UserProfileScreen extends StatelessWidget {
+  static String routeName = '/profile';
   const UserProfileScreen({super.key});
 
   @override

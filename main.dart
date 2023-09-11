@@ -6,8 +6,10 @@ import 'package:flutter_test_app/activity_screen.dart';
 import 'package:flutter_test_app/home.dart';
 import 'package:flutter_test_app/home_screen.dart';
 import 'package:flutter_test_app/privacy_screen.dart';
+import 'package:flutter_test_app/router.dart';
 import 'package:flutter_test_app/search_screen.dart';
 import 'package:flutter_test_app/setting_screen.dart';
+import 'package:flutter_test_app/user_profile_screen.dart';
 import 'package:flutter_test_app/video/video_recording_screen.dart';
 
 void main() {
@@ -25,7 +27,8 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(
         textTheme: Typography.whiteMountainView,
@@ -34,13 +37,6 @@ class _MyAppState extends State<MyApp> {
       ),
       title: "Hey! I tried to .ddd.",
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
-      routes: {
-        "/": (context) => Home(),
-        "/home": (context) => HomeScreen(),
-        "/settings": (context) => SettingScreen(),
-        "/privacy": (context) => PrivacyScreen(),
-      },
     );
   }
 }
