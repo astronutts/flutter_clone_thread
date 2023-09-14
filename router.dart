@@ -1,13 +1,14 @@
-import 'package:flutter_test_app/activity_screen.dart';
-import 'package:flutter_test_app/home.dart';
-import 'package:flutter_test_app/home_screen.dart';
-import 'package:flutter_test_app/privacy_screen.dart';
-import 'package:flutter_test_app/search_screen.dart';
-import 'package:flutter_test_app/setting_screen.dart';
-import 'package:flutter_test_app/user_profile_screen.dart';
+import 'package:flutter_test_app/screens/activity_screen.dart';
+import 'package:flutter_test_app/screens/home.dart';
+import 'package:flutter_test_app/screens/home_screen.dart';
+import 'package:flutter_test_app/screens/privacy_screen.dart';
+import 'package:flutter_test_app/screens/search_screen.dart';
+import 'package:flutter_test_app/settings/views/setting_screen.dart';
+import 'package:flutter_test_app/screens/user_profile_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
+  initialLocation: Home.routeName,
   routes: [
     GoRoute(
       path: Home.routeName,

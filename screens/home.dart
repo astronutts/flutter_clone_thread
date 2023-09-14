@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_test_app/activity_screen.dart';
-import 'package:flutter_test_app/etc_screen.dart';
-import 'package:flutter_test_app/home_screen.dart';
-import 'package:flutter_test_app/search_screen.dart';
-import 'package:flutter_test_app/user_profile_screen.dart';
+import 'package:flutter_test_app/screens/activity_screen.dart';
+import 'package:flutter_test_app/screens/etc_screen.dart';
+import 'package:flutter_test_app/screens/home_screen.dart';
+import 'package:flutter_test_app/screens/search_screen.dart';
+import 'package:flutter_test_app/screens/user_profile_screen.dart';
 import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/thread_comments.dart';
 

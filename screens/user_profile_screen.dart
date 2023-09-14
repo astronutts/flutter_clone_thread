@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_app/setting_screen.dart';
+import 'package:flutter_test_app/settings/view_models/darkmode_config_vm.dart';
+import 'package:flutter_test_app/settings/views/setting_screen.dart';
 import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/activity_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class UserProfileScreen extends StatelessWidget {
   static String routeName = '/profile';
@@ -84,12 +86,37 @@ class UserProfileScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Astronuts',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Astronuts',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Dark Mode',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                FaIcon(
+                                  FontAwesomeIcons.circleCheck,
+                                  color: context
+                                              .watch<DarkmodeConfigViewModel>()
+                                              .darkmode ==
+                                          true
+                                      ? Colors.green
+                                      : Colors.grey,
+                                )
+                              ],
                             ),
                             SizedBox(
                               height: 15,
