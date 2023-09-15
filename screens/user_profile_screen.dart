@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app/settings/view_models/darkmode_config_vm.dart';
 import 'package:flutter_test_app/settings/views/setting_screen.dart';
 import 'package:flutter_test_app/utils.dart';
@@ -6,12 +7,12 @@ import 'package:flutter_test_app/widgets/activity_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-class UserProfileScreen extends StatelessWidget {
+class UserProfileScreen extends ConsumerWidget {
   static String routeName = '/profile';
   const UserProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return DefaultTabController(
       length: 2,
       child: NestedScrollView(
@@ -109,12 +110,10 @@ class UserProfileScreen extends StatelessWidget {
                                 ),
                                 FaIcon(
                                   FontAwesomeIcons.circleCheck,
-                                  color: context
-                                              .watch<DarkmodeConfigViewModel>()
-                                              .darkmode ==
-                                          true
-                                      ? Colors.green
-                                      : Colors.grey,
+                                  color:
+                                      ref.watch(darkModeConfigProvider).darkmode
+                                          ? Colors.green
+                                          : Colors.grey,
                                 )
                               ],
                             ),

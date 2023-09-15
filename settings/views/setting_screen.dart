@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app/settings/view_models/darkmode_config_vm.dart';
 import 'package:flutter_test_app/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:riverpod/riverpod.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends ConsumerWidget {
   static String routeName = '/settings';
   const SettingScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         shape: Border(
@@ -87,10 +89,12 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
               trailing: Switch.adaptive(
-                  value: context.watch<DarkmodeConfigViewModel>().darkmode,
-                  onChanged: (value) => context
-                      .read<DarkmodeConfigViewModel>()
-                      .setDarkmode(value)),
+                  value: ref.watch(darkModeConfigProvider).darkmode,
+                  onChanged: (value) => {
+                        ref
+                            .read(darkModeConfigProvider.notifier)
+                            .setDarkmode(value)
+                      }),
             ),
             GestureDetector(
               onTap: () {

@@ -1,9 +1,11 @@
 // ignore_for_file: unused_import
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app/screens/activity_screen.dart';
 import 'package:flutter_test_app/screens/home.dart';
 import 'package:flutter_test_app/screens/home_screen.dart';
+import 'package:flutter_test_app/screens/material.dart';
 import 'package:flutter_test_app/screens/privacy_screen.dart';
 import 'package:flutter_test_app/router.dart';
 import 'package:flutter_test_app/screens/search_screen.dart';
@@ -20,14 +22,16 @@ Future<void> main() async {
   final preferences = await SharedPreferences.getInstance();
   final repository = DarkmodeConfigRepository(preferences);
 
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(
-        create: (context) => DarkmodeConfigViewModel(repository),
-      ),
-    ],
-    child: MyApp(),
-  ));
+  runApp(
+    ProviderScope(
+      overrides: [
+        darkModeConfigProvider.overrideWith(
+          () => DarkmodeConfigViewModel(repository),
+        )
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -41,18 +45,6 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
-      themeMode: context.watch<DarkmodeConfigViewModel>().darkmode
-          ? ThemeMode.dark
-          : ThemeMode.light,
-      darkTheme: ThemeData(
-        textTheme: Typography.whiteMountainView,
-        scaffoldBackgroundColor: Colors.black,
-        brightness: Brightness.dark,
-      ),
-      title: "Hey! I tried to .ddd.",
-      debugShowCheckedModeBanner: false,
-    );
+    return MaterialAppWidget();
   }
 }
