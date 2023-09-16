@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app/settings/models/darkmode_confing_model.dart';
 import 'package:flutter_test_app/settings/repos/darkmode_config_repo.dart';

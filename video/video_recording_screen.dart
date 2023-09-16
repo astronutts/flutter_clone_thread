@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/video/video_preview_screen.dart';

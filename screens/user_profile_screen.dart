@@ -5,10 +5,10 @@ import 'package:flutter_test_app/settings/views/setting_screen.dart';
 import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/activity_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 
 class UserProfileScreen extends ConsumerWidget {
-  static String routeName = '/profile';
+  static String routeName = 'profile';
+  static String routeURL = '/profiel';
   const UserProfileScreen({super.key});
 
   @override

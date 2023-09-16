@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test_app/authentication/authentication_repo.dart';
 import 'package:flutter_test_app/settings/view_models/darkmode_config_vm.dart';
 import 'package:flutter_test_app/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
-import 'package:riverpod/riverpod.dart';
 
 class SettingScreen extends ConsumerWidget {
-  static String routeName = '/settings';
+  static String routeName = 'settings';
+  static String routeURL = '/settings';
   const SettingScreen({super.key});
 
   @override
@@ -92,7 +92,7 @@ class SettingScreen extends ConsumerWidget {
                   value: ref.watch(darkModeConfigProvider).darkmode,
                   onChanged: (value) => {
                         ref
-                            .read(darkModeConfigProvider.notifier)
+                            .watch(darkModeConfigProvider.notifier)
                             .setDarkmode(value)
                       }),
             ),
@@ -115,17 +115,22 @@ class SettingScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            ListTile(
-              leading: FaIcon(
-                FontAwesomeIcons.circleUser,
-                color:
-                    isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
-              ),
-              title: Text(
-                'Account',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: () {
+                context.push('/login');
+              },
+              child: ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.circleUser,
+                  color:
+                      isDarkMode(context) ? Colors.grey.shade300 : Colors.black,
+                ),
+                title: Text(
+                  'Account',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -174,15 +179,22 @@ class SettingScreen extends ConsumerWidget {
                   context: context,
                   builder: (context) => CupertinoAlertDialog(
                     title: Text('***** Log out *****'),
-                    content: Text('정상적으로 로그아웃 되셨습니다~!'),
+                    content: Text('로그아웃을 하시겠습니까?'),
                     actions: [
                       CupertinoDialogAction(
-                        child: Text('확인'),
+                          child: Text('확인'),
+                          isDefaultAction: true,
+                          onPressed: () {
+                            ref.watch(authRepo).signOut();
+                            context.go('/');
+                          }),
+                      CupertinoDialogAction(
+                        child: Text('취소'),
                         isDefaultAction: true,
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                      )
+                      ),
                     ],
                   ),
                 );

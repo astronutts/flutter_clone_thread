@@ -4,7 +4,8 @@ import 'package:flutter_test_app/widgets/message_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
-  static String routeName = '/home';
+  static String routeName = 'homescreen';
+  static String routeURL = '/homescreen';
   const HomeScreen({super.key});
 
   @override
