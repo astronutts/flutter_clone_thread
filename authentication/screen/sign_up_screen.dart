@@ -69,7 +69,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 height: 50,
               ),
               FaIcon(
-                FontAwesomeIcons.instagram,
+                FontAwesomeIcons.cube,
                 size: 70,
               ),
               SizedBox(
