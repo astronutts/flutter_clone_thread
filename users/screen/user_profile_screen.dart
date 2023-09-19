@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test_app/authentication/authentication_repo.dart';
+import 'package:flutter_test_app/authentication/view_models/login_view_model.dart';
 import 'package:flutter_test_app/settings/view_models/darkmode_config_vm.dart';
 import 'package:flutter_test_app/settings/views/setting_screen.dart';
 import 'package:flutter_test_app/utils.dart';
@@ -122,7 +124,8 @@ class UserProfileScreen extends ConsumerWidget {
                             ),
                             Row(
                               children: [
-                                Text('goto_space'),
+                                Text(
+                                    ref.watch(authRepo).user!.email.toString()),
                                 SizedBox(
                                   width: 10,
                                 ),

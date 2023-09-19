@@ -13,7 +13,7 @@ import 'package:flutter_test_app/screens/search_screen.dart';
 import 'package:flutter_test_app/settings/repos/darkmode_config_repo.dart';
 import 'package:flutter_test_app/settings/view_models/darkmode_config_vm.dart';
 import 'package:flutter_test_app/settings/views/setting_screen.dart';
-import 'package:flutter_test_app/screens/user_profile_screen.dart';
+import 'package:flutter_test_app/users/screen/user_profile_screen.dart';
 import 'package:flutter_test_app/video/video_recording_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -8,7 +8,7 @@ import 'package:flutter_test_app/authentication/screen/login_screen.dart';
 import 'package:flutter_test_app/screens/privacy_screen.dart';
 import 'package:flutter_test_app/screens/search_screen.dart';
 import 'package:flutter_test_app/settings/views/setting_screen.dart';
-import 'package:flutter_test_app/screens/user_profile_screen.dart';
+import 'package:flutter_test_app/users/screen/user_profile_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final routerProvider = Provider((ref) {
