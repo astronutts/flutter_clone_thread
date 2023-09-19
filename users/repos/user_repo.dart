@@ -5,7 +5,14 @@ import 'package:flutter_test_app/users/models/user_profile_model.dart';
 class UserRepository {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  Future<void> createProfile(UserProfileModel user) async {}
+  Future<void> createProfile(UserProfileModel profile) async {
+    _db.collection("users").doc(profile.uid).set(profile.toJson());
+  }
+
+  Future<Map<String, dynamic>?> findProfile(String uid) async {
+    final doc = await _db.collection('users').doc(uid).get();
+    return doc.data();
+  }
 }
 
 final userRepo = Provider((ref) => UserRepository());
