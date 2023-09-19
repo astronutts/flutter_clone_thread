@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test_app/screens/activity_screen.dart';
 import 'package:flutter_test_app/screens/home_screen.dart';
 import 'package:flutter_test_app/screens/search_screen.dart';
-import 'package:flutter_test_app/screens/user_profile_screen.dart';
+import 'package:flutter_test_app/users/screen/user_profile_screen.dart';
 import 'package:flutter_test_app/utils.dart';
 import 'package:flutter_test_app/widgets/thread_comments.dart';
 
