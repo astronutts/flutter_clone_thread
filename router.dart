@@ -1,14 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app/authentication/authentication_repo.dart';
 import 'package:flutter_test_app/authentication/screen/sign_up_screen.dart';
-import 'package:flutter_test_app/screens/activity_screen.dart';
 import 'package:flutter_test_app/screens/home.dart';
-import 'package:flutter_test_app/screens/home_screen.dart';
 import 'package:flutter_test_app/authentication/screen/login_screen.dart';
-import 'package:flutter_test_app/screens/privacy_screen.dart';
-import 'package:flutter_test_app/screens/search_screen.dart';
-import 'package:flutter_test_app/settings/views/setting_screen.dart';
-import 'package:flutter_test_app/users/screen/user_profile_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final routerProvider = Provider((ref) {
@@ -40,36 +34,6 @@ final routerProvider = Provider((ref) {
         name: Home.routeName,
         path: Home.routeURL,
         builder: (context, state) => const Home(),
-      ),
-      GoRoute(
-        name: HomeScreen.routeName,
-        path: HomeScreen.routeURL,
-        builder: (context, state) => const HomeScreen(),
-      ),
-      GoRoute(
-        name: SearchScreen.routeName,
-        path: SearchScreen.routeURL,
-        builder: (context, state) => const SearchScreen(),
-      ),
-      GoRoute(
-        name: ActivityScreen.routeName,
-        path: ActivityScreen.routeURL,
-        builder: (context, state) => const ActivityScreen(),
-      ),
-      GoRoute(
-        name: UserProfileScreen.routeName,
-        path: UserProfileScreen.routeURL,
-        builder: (context, state) => const UserProfileScreen(),
-      ),
-      GoRoute(
-        name: SettingScreen.routeName,
-        path: SettingScreen.routeURL,
-        builder: (context, state) => const SettingScreen(),
-      ),
-      GoRoute(
-        name: PrivacyScreen.routeName,
-        path: PrivacyScreen.routeURL,
-        builder: (context, state) => PrivacyScreen(),
       ),
     ],
   );
