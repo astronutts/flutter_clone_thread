@@ -1,6 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app/board/view_models/board_view_model.dart';
+import 'package:flutter_test_app/screens/test.dart';
+
+import 'pick_image.dart';
 
 class WriteScreen extends ConsumerStatefulWidget {
   const WriteScreen({super.key});
@@ -29,6 +34,14 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
     super.dispose();
   }
 
+  void _tapIcon() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: ((context) => PickImage()),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +68,7 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
                   cursorWidth: 10,
                   decoration: InputDecoration(
                       suffixIcon: GestureDetector(
-                    onTap: () {},
+                    onTap: _tapIcon,
                     child: Icon(
                       Icons.photo,
                       size: 30,
@@ -69,8 +82,19 @@ class _WriteScreenState extends ConsumerState<WriteScreen> {
               ),
               TextButton(
                 onPressed: () {},
-                child: Text('Register'),
-              )
+                child: Text(
+                  'Register',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                width: 200,
+                height: 200,
+                child: Image.file(File(boardtype.path)),
+              ),
             ],
           ),
         ),

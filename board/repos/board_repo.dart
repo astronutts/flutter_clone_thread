@@ -5,9 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app/board/models/board_model.dart';
 
 class BoardRepository {
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
+  FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  Future<void> registerPage(BoardModel board) async {}
+  Future<void> registerPage(BoardModel board) async {
+    _db.collection("board").doc("IfQFArYoC75GF04eLNYD").set(board.toJson());
+  }
 }
 
 final boardRepo = Provider((ref) => BoardRepository());
